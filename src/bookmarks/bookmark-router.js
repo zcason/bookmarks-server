@@ -31,11 +31,11 @@ bookmarkRouter
             const bookmark = { id, title, url, description, rating }
 
             bookmarks.push(bookmark)
-            logger.info(`Card with id ${id} created`)
+            logger.info(`Bookmark with id ${id} created`)
 
             res
                 .status(201)
-                .location(`http://localhost:8040/card/${id}`)
+                .location(`http://localhost:8040/bookmarks/${id}`)
                 .json(bookmark)
         }
     })
@@ -43,5 +43,49 @@ bookmarkRouter
 // route for a specific bookmark
 bookmarkRouter
     .route('/bookmarks/:id')
-    .get()
-    .delete()
+    // display specific bookmark by id 
+    .get((req, res) => {
+        const { id } = req.params
+        const bookmark = bookmarks.find(bm => bm.id === id)
+
+        // make sure the bookmark was found
+        if (!bookmark) {
+            logger.error(`Bookmark with id ${id} not found.`)
+            return res
+                .status(404)
+                .send('Bookmark Not Found')
+        }
+
+        res.json(bookmark)
+    })
+    // delete specific bookmark
+    .delete((req, res) => {
+        const { id } = req.params
+
+        const bookmarkIndex = bookmarks.findIndex(bm => bm.id === id)
+
+        if (bookmarkIndex === -1) {
+            logger.error(`Bookmark with id ${id} not found.`)
+            return res
+                .status(404)
+                .send('Not found')
+        }
+
+        //remove card from lists
+        //assume cardIds are not duplicated in the cardIds array
+        lists.forEach(list => {
+            const bookmarkIds = bookmarks.filter(bmId => bmId !== id)
+            bookmarks = bookmarkIds
+        })
+
+        bookmarks.splice(bookmarkIndex, 1)
+
+        logger.info(`Bookmark with id ${id} deleted.`)
+
+        res
+            .status(204)
+            .end()
+    })
+
+
+module.exports = bookmarkRouter

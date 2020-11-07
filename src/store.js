@@ -3,23 +3,23 @@ const uuid = require('uuid/v4')
 const bookmarks = [
   {
     id: uuid(),
-    title: 'Thinkful',
-    url: 'https://www.thinkful.com',
-    description: 'Think outside the classroom',
-    rating: 5
-  },
-  {
-    id: uuid(),
     title: 'Google',
     url: 'https://www.google.com',
-    description: 'Where we find everything else',
+    description: 'Great website',
     rating: 4
   },
   {
     id: uuid(),
-    title: 'MDN',
-    url: 'https://developer.mozilla.org',
-    description: 'The only place to find web documentation',
+    title: 'Facebook',
+    url: 'https://www.facebook.com',
+    description: 'Not a fan of this website',
+    rating: 1
+  },
+  {
+    id: uuid(),
+    title: 'Youtube',
+    url: 'https://www.youtube.com',
+    description: 'So many entertaining videos!',
     rating: 5
   },
 ]
