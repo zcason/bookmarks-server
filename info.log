@@ -1,0 +1,9 @@
+{"message":"Invalid rating '4' supplied","level":"error"}
+{"message":"Bookmark with id d01f02ab-8d1f-4400-9b30-570700e62a80 created","level":"info"}
+{"message":"Bookmark with id b6ae8663-833e-4c8d-b9f5-308bf7823c51 created","level":"info"}
+{"message":"Bookmark with id 45 deleted.","level":"info"}
+{"message":"Bookmark with id 45 deleted.","level":"info"}
+{"message":"Bookmark with id 45cea228-7065-4643-a323-8f75d91af0d2 deleted.","level":"info"}
+{"message":"Bookmark with id 45cea228-7065-4643-a323-8f75d91af0d2 not found.","level":"error"}
+{"message":"Bookmark with id 45cea228-7065-4643-a323-8f75d91af0d2 deleted.","level":"info"}
+{"message":"Bookmark with id 45cea228-7065-4643-a323-8f75d91af0d2 not found.","level":"error"}

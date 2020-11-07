@@ -71,12 +71,8 @@ bookmarkRouter
                 .send('Not found')
         }
 
-        //remove card from lists
-        //assume cardIds are not duplicated in the cardIds array
-        lists.forEach(list => {
-            const bookmarkIds = bookmarks.filter(bmId => bmId !== id)
-            bookmarks = bookmarkIds
-        })
+        //remove bookmark from the list of bookmarks 
+        //assume bookmarkIds are not duplicated in the bookmarkIds array
 
         bookmarks.splice(bookmarkIndex, 1)
 
